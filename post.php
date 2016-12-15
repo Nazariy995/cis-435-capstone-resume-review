@@ -2,6 +2,8 @@
 include 'php/view/header.php';
 include 'php/model/database.php';
 include 'php/model/category_md.php';
+include 'php/model/resume_md.php';
+include 'php/controller/post_cr.php';
 ?>
 <script src="/js/post.js"></script>
 <nav class="navbar navbar-default">
@@ -15,9 +17,18 @@ include 'php/model/category_md.php';
     </div>
 </nav>
 <div class="container">
+    <?php if(!empty($error)){?>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="alert alert-danger">
+                    <?php print $error?>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
     <div class="row">
         <div class="col-xs-12 col-md-6">
-            <form name="postForm" action="" onsubmit="return(validate())">
+            <form name="postForm" action="" method="post" onsubmit="return(validate())" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="category">Select Category</label>
                 <select name="category" class="form-control">
@@ -34,13 +45,11 @@ include 'php/model/category_md.php';
                 <input type="file" class="form-control-file" name="fileUpload" accept="application/pdf">
                 <small class="form-text text-muted">Only PDF files are accepted</small>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
 </div>
-
-
 <?php
 $db = null;
 include 'php/view/footer.php';
