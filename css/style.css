@@ -1,4 +1,9 @@
-.navbar, .navbar a {
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar, .navbar a, .navbar-text {
     color: white !important;
 }
 
