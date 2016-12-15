@@ -1,0 +1,8 @@
+.navbar, .navbar a {
+    color: white !important;
+}
+
+.navbar-default {
+    border-radius: 0 !important;
+    background-color: #0099ff !important;
+}
