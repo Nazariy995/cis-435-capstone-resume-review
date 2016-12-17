@@ -19,6 +19,15 @@ include 'php/controller/resume_cr.php';
     </div>
 </nav>
 <div class="container">
+    <?php if(!empty($_GET["resume_submit"]) && $_GET["resume_submit"]=="true"){ ?>
+        <div class="row">
+        <div class="col-xs-12" >
+            <div class="alert alert-info">
+              Please save this link for later reference! Thank You!
+            </div>
+        </div>
+    </div>
+    <?php } ?>
     <div class="row">
         <div class="col-xs-12" >
         <iframe src="<?php print $pdf_view_url ?>" align="middle" height="515" class="resume-pdf"></iframe>
@@ -40,7 +49,7 @@ include 'php/controller/resume_cr.php';
             <?php
             foreach($feedback as $comment){
                 echo "<div class='well well-sm feedback'>";
-                echo $comment["text"];
+                echo nl2br($comment["text"]);
                 echo "</div>";
             }
             ?>
