@@ -12,7 +12,7 @@ include 'php/controller/post_cr.php';
         <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true" ></span></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Post</a></li>
+        <li><a href="post.php">Post</a></li>
       </ul>
     </div>
 </nav>

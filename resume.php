@@ -14,14 +14,14 @@ include 'php/controller/resume_cr.php';
       </ul>
         <p class="navbar-text navbar-left"><?php print $category["name"] ?></p>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Post</a></li>
+        <li><a href="post.php">Post</a></li>
       </ul>
     </div>
 </nav>
 <div class="container">
     <div class="row">
-        <div class="col-xs-12" style="text-align:center">
-        <iframe src="<?php print $pdf_view_url ?>" align="middle" height="515" width="600"></iframe>
+        <div class="col-xs-12" >
+        <iframe src="<?php print $pdf_view_url ?>" align="middle" height="515" class="resume-pdf"></iframe>
         </div>
     </div>
     <div class="row">

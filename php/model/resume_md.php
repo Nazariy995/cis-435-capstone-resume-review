@@ -12,7 +12,7 @@ function add_resume($category,$file, $url_id){
 }
 
 function get_resume($url_id){
-        global $db;
+    global $db;
     $query = "SELECT * FROM resume
             WHERE url_id=:url_id";
     $statement = $db ->prepare($query);
@@ -24,11 +24,25 @@ function get_resume($url_id){
 }
 
 function get_resumes(){
-        global $db;
-    $query = "SELECT * FROM resume
-            ORDER BY created_date";
+    global $db;
+    $query = "SELECT r.id as id, r.url as url, r.url_id, c.name as category_name FROM resume r
+            INNER JOIN category c ON r.category = c.id
+            ORDER BY created_date DESC";
     $statement = $db ->prepare($query);
-    $statement->bindValue(":url_id", $url_id);
+    $statement->execute();
+    $resumes = $statement->fetchAll();
+    $statement->closeCursor();
+    return $resumes;
+}
+
+function get_resumes_from_category($category){
+    global $db;
+    $query = "SELECT r.id as id, r.url as url, r.url_id, c.name as category_name FROM resume r
+            INNER JOIN category c ON r.category = c.id
+            WHERE category=:category
+            ORDER BY created_date DESC";
+    $statement = $db ->prepare($query);
+    $statement->bindValue(":category", $category);
     $statement->execute();
     $resumes = $statement->fetchAll();
     $statement->closeCursor();
