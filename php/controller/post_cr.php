@@ -3,7 +3,6 @@ if(!empty($_POST) && !empty($_FILES["fileUpload"])) {
     $target_dir = "uploads/";
     $category = $_POST["category"];
     $url_id = uniqid();
-    echo $category;
     $target_file = $target_dir.$url_id."_".basename($_FILES["fileUpload"]["name"]);
     $uploadOk = 1;
     $fileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -24,6 +23,7 @@ if(!empty($_POST) && !empty($_FILES["fileUpload"])) {
         if (move_uploaded_file($_FILES["fileUpload"]["tmp_name"], $target_file)) {
             try {
                 add_resume($category, $target_file, $url_id);
+                header("Location: resume.php?id=$url_id&resume_submit=true");
             } catch(Exception $ex){
                 echo "Nope not working";
             }

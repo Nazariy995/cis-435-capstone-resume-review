@@ -8,6 +8,7 @@ function add_resume($category,$file, $url_id){
     $statement->bindValue(":category", $category);
     $statement->bindValue(":url_id", $url_id);
     $statement->execute();
+    print_r($statement->errorInfo());
     $statement->closeCursor();
 }
 

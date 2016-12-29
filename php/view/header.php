@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>The HTML5 Herald</title>
+    <title>ResumeReview</title>
     <meta name="description" content="The HTML5 Herald">
     <meta name="author" content="Nazariy Dumaskyy">
          <!-- Latest compiled and minified CSS -->

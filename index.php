@@ -45,7 +45,7 @@ include 'php/controller/index_cr.php';
                 $feedback = get_feedback_from_resume($resume["id"]);
                 foreach($feedback as $comment){
                     echo "<div class='well well-sm feedback'>";
-                    echo $comment["text"];
+                    echo nl2br($comment["text"]);
                     echo "</div>";
                 }
 
